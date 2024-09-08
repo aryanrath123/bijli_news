@@ -1,0 +1,270 @@
+/* Global Styles */
+body {
+  position: relative;
+  background: linear-gradient(to bottom right, #1e2a38, #2d3e50); /* Dark gradient background */
+  font-family: "Arial", sans-serif;
+  color: #333;
+  overflow-y: scroll; /* Ensure scrollbar is visible */
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.obj-width {
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Navbar Styles */
+nav {
+  background: linear-gradient(135deg, #3a6186, #89253e); /* Attractive gradient from dark blue to dark red */
+  box-shadow: 0 7px 10px rgba(0, 0, 0, 0.3);
+  position: sticky; /* Sticks the navbar to the top */
+  top: 0;
+  z-index: 1000;
+  animation: gradientAnimation 5s ease infinite; /* Gradient animation */
+  background-size: 200% 200%; /* Required for smooth gradient animation */
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.3rem 0;
+}
+
+.navbar .logo {
+  font-size: 2.2rem;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: 2px;
+  transition: color 0.3s ease; /* Smooth transition for hover */
+}
+
+.navbar .logo:hover {
+  color: #ffd700; /* Golden color on hover */
+}
+
+/* Search Bar Styles */
+.search-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#search-input {
+  max-width: 400px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  color: #333;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#search-button {
+  padding: 10px 20px;
+  background-color: #138065;
+  color: #fff;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-left: 10px;
+  transition: background-color 0.3s ease;
+}
+
+#search-button:hover {
+  background-color: #0f6b54; /* Darken on hover */
+}
+
+/* Blog Container Styles */
+#blog-container {
+  padding: 3rem 0;
+  display: flex;
+  justify-content: center; /* Center-align blog cards */
+  align-items: flex-start;
+  gap: 30px; /* Even spacing between blog cards */
+  flex-wrap: wrap;
+}
+
+/* Blog Card Container */
+.blog-card-container {
+  perspective: 1000px; /* Creates a 3D effect */
+  width: 350px; /* Ensure the container width */
+  height: 450px; /* Ensure the container height */
+}
+
+.blog-card {
+  width: 100%; /* Full width of the container */
+  height: 100%; /* Full height of the container */
+  background-color: #f2f4f8; /* Slightly darker light gray background for cards */
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* 3D shadow */
+  transition: transform 0.6s ease, background-color 0.6s ease; /* Smooth flip and color transition */
+  transform-style: preserve-3d; /* Ensures child elements are rendered in 3D */
+}
+
+.blog-card:hover {
+  transform: rotateY(180deg); /* Flip on hover */
+  background: linear-gradient(135deg, #3a6186, #89253e); /* Gradient animation on flip */
+}
+
+/* Flip Card Inner */
+.blog-card-inner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s ease;
+  transform-style: preserve-3d; /* Ensures child elements are rendered in 3D */
+}
+
+/* Flip Card Front and Back */
+.blog-card-front, .blog-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* Hides the back when facing away */
+  border-radius: 15px; /* Consistent border radius */
+}
+
+.blog-card-front {
+  background-color: #f2f4f8; /* Light gray background for the front */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 15px; /* Padding inside the card */
+}
+
+.blog-card-front img {
+  width: 100%; /* Make image fit the card width */
+  height: 60%; /* Adjust height of the image */
+  object-fit: cover; /* Maintain aspect ratio */
+  border-radius: 10px; /* Rounded corners for the image */
+}
+
+.blog-card-front h2 {
+  margin: 10px 0; /* Margin around the title */
+}
+
+.blog-card-front p {
+  font-size: 14px; /* Font size for the description */
+}
+
+.blog-card-back {
+  background: linear-gradient(135deg, #f2f4f8, #e0e5e9); /* Gradient background for the back */
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  transform: rotateY(180deg); /* Hide the back by default */
+  border-radius: 15px; /* Consistent border radius */
+  position: relative; /* Ensure correct positioning of the button */
+}
+
+.blog-card-back button {
+  padding: 10px 20px;
+  background-color: #138065;
+  color: #fff;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.blog-card-back button:hover {
+  background-color: #0f6b54; /* Darken on hover */
+}
+
+/* Custom Scrollbar Styles */
+body::-webkit-scrollbar {
+  width: 12px;
+   /* Width of the scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background: wheat; /* Light background for the scrollbar track */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: darkorchid;
+  border-radius: 10px; 
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  
+   /* Shadow effect */
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: #138065; /* Darken on hover */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .search-container {
+    flex-direction: column; /* Stack search input and button vertically */
+    align-items: flex-start; /* Align items to the start */
+  }
+
+  #search-input {
+    width: 100%;
+    max-width: none;
+    margin-bottom: 10px;
+  }
+
+  #search-button {
+    width: 100%;
+    max-width: none;
+    margin-left: 0; /* Remove left margin */
+  }
+
+  .blog-card-container {
+    width: 100%;
+    height: auto; /* Adjust height for smaller screens */
+  }
+
+  .blog-card {
+    width: 100%;
+    height: auto; /* Adjust height for smaller screens */
+  }
+}
+
+@media (max-width: 500px) {
+  .navbar .logo {
+    font-size: 1.8rem;
+  }
+
+  .blog-card-container {
+    width: 100%;
+  }
+
+  #search-input {
+    font-size: 16px; /* Adjust font size */
+  }
+
+  #search-button {
+    font-size: 16px; /* Adjust font size */
+  }
+}
